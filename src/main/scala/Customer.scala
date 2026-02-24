@@ -1,15 +1,12 @@
 import scala.collection.mutable.ArrayBuffer
 import scala.util.Random
 
-class Customer {
+class Customer extends CustomerNameList {
 
-  val rand = Random
-  val firstNames: List[String] = List("Alan", "Sarah", "Barry", "Steve", "Joe", "Lara", "Jane")
-  val surNames: List[String] = List("Corbishley", "Palin", "Chuckle", "Wozniak", "Bloggs", "Smith", "Doe")
-  var age : Int = getCustomerAge()
+  final val rand = Random
 
   def getCustomerAge() : Int = {
-    val age = rand.between(16, 85)
+    val age = rand.between(16, 115)
     age
   }
 
