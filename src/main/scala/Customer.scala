@@ -6,7 +6,7 @@ class Customer extends CustomerNameList {
   final val rand = Random
 
   def getCustomerAge() : Int = {
-    val age = rand.between(16, 85)
+    val age = rand.between(16, 115)
     age
   }
 
