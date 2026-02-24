@@ -1,0 +1,42 @@
+import scala.collection.mutable.ArrayBuffer
+import scala.util.Random
+
+class Customer {
+
+  val rand = Random
+  val firstNames: List[String] = List("Alan", "Sarah", "Barry", "Steve", "Joe", "Lara", "Jane")
+  val surNames: List[String] = List("Corbishley", "Palin", "Chuckle", "Wozniak", "Bloggs", "Smith", "Doe")
+  var age : Int = getCustomerAge()
+
+  def getCustomerAge() : Int = {
+    val age = rand.between(16, 85)
+    age
+  }
+
+  def getLargestList() : Int = {
+    var randInt : Int = 0
+    if (firstNames.length > surNames.length) {
+      randInt = rand.nextInt(firstNames.length)
+    }
+    else {
+      randInt = rand.nextInt(surNames.length)
+    }
+    randInt
+  }
+  def generateCustomer(i : Int) : ArrayBuffer[Any] = {
+    val i = getLargestList()
+    val firstName : String = firstNames(i)
+    val surName : String = surNames(i)
+    val age : Int = getCustomerAge()
+    generatedCustomers.addOne(fulfilCustomerDetails(firstName, surName, age))
+  }
+
+  def fulfilCustomerDetails(firstName: String, surName: String, age: Int): ArrayBuffer[Any] = {
+    val customer = ArrayBuffer[Any]()
+      customer.addOne(firstName)
+      customer.addOne(surName)
+      customer.addOne(age)
+  }
+
+  val generatedCustomers = ArrayBuffer[Any]()
+}
