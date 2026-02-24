@@ -13,7 +13,7 @@ class Customer {
     age
   }
 
-  def getLargestList() : Int = {
+  def randIntGen() : Int = {
     var randInt : Int = 0
     if (firstNames.length > surNames.length) {
       randInt = rand.nextInt(firstNames.length)
@@ -24,9 +24,8 @@ class Customer {
     randInt
   }
   def generateCustomer(i : Int) : ArrayBuffer[Any] = {
-    val i = getLargestList()
-    val firstName : String = firstNames(i)
-    val surName : String = surNames(i)
+    val firstName : String = firstNames(randIntGen())
+    val surName : String = surNames(randIntGen())
     val age : Int = getCustomerAge()
     generatedCustomers.addOne(fulfilCustomerDetails(firstName, surName, age))
   }
