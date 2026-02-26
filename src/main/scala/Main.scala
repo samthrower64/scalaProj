@@ -1,9 +1,11 @@
-object Main {
+object Main extends Customer {
   def main(args: Array[String]): Unit = {
     val customer = new Customer()
 
-    customer.generateCustomer(customer.randIntGen())
-    customer.generatedCustomers.foreach(println)
+    generateCustomer(customer.randIntGen())
+    generatedCustomers.foreach(println)
+
+    // CustomerDatabaseConnection.storeCustomerInDb(customer.generatedCustomers.foreach)
   }
 }
 

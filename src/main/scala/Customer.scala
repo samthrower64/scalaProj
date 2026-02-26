@@ -35,4 +35,4 @@ class Customer extends CustomerNameList {
   }
 
   val generatedCustomers = ArrayBuffer[Any]()
-}
+  }
