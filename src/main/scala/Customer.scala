@@ -24,7 +24,9 @@ class Customer extends CustomerNameList {
     val firstName : String = firstNames(randIntGen())
     val surName : String = surNames(randIntGen())
     val age : Int = getCustomerAge()
-    generatedCustomers.addOne(fulfilCustomerDetails(firstName, surName, age))
+    generatedCustomers.addAll(fulfilCustomerDetails(firstName, surName, age))
+    //addOne will add all of fulfilCustomerDetails output as ONE element in arrayBuf
+    //addAll adds each element as if it were single elements
   }
 
   def fulfilCustomerDetails(firstName: String, surName: String, age: Int): ArrayBuffer[Any] = {

@@ -8,23 +8,24 @@ object CustomerDatabaseConnection extends Customer {
   )
 
   def storeCustomerInDb(customer: ArrayBuffer[Any]): Unit = {
-    val fn = customer(0)
-    val sn = customer(1)
-    val age = customer(2)
+    getConnection
+    val fn = customer(0).toString
+    val sn = customer(1).toString
+    val age = customer(2).toString
 
-    val statement = getConnection.prepareStatement(
-      s"INSERT INTO customer (firstName, surName, age) VALUES ($fn, $sn, $age);"
-    )
+    val sql = s"INSERT INTO customer (firstName surName age) VALUES (???);"
 
+    val statement = getConnection.prepareStatement(sql)
+    statement.setString(1, fn)
+    statement.setString(2, sn)
+    statement.setString(3, age)
     statement.executeUpdate()
     statement.close()
-  }
-
     try {
-      getConnection
       storeCustomerInDb(generatedCustomers)
       getConnection.close()
     } catch {
       case e: Exception => e.printStackTrace()
     }
   }
+}
